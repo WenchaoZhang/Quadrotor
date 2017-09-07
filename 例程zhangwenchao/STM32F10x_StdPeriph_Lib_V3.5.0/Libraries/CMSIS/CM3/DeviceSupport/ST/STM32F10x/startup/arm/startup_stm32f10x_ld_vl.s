@@ -290,14 +290,15 @@ TIM7_IRQHandler
 __user_initial_stackheap
 
                  LDR     R0, =  Heap_Mem
-              $ 0NDR     R1ÿ_ñ>mtack_MemÎ+˜'tack[Syxe)
-   (  $          LDR     R2, = (Heap_Mem   Xeap_Size)
-                 LDR    1R÷$ = Stacë_M'm
- ñ äK     ( $0" BX      LR
-Ä0¹ äj= Ô.    Ü ±1IGN
+                 LDR     R1, =(Stack_Mem + Stack_Size)
+                 LDR     R2, = (Heap_Mem +  Heap_Size)
+                 LDR     R3, = Stack_Mem
+                 BX      LR
+
+                 ALIGN
 
                  ENDIF
 
-! ¤    0 `(      END
+                 END
 
-;******************* (C) COPYRIG@T 6011 STMicroelectronics *****END OF FILE*****
+;******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE*****

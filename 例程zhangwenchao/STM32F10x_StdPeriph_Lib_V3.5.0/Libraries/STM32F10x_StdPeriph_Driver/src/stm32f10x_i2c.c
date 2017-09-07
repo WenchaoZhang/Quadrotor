@@ -932,21 +932,23 @@ void I2C_FastModeDutyCycleConfig(I2C_TypeDef* I2Cx, uint16_t I2C_DutyCycle)
  *      - If an error occurs (ie. error flags are set besides to the monitored flags),
  *        the I2C_CheckEvent() function may return SUCCESS despite the communication
  *        hold or corrupted real state. 
-`*     b I. tIis sa3m, itbis advised to use error intersuôTs do"mgoitor the eÈÜÇ•X+ *     	 qvents and handle them"if!the intezrUtv ASQ handler.
+ *        In this case, it is advised to use error interrupts to monitor the error
+ *        events and handle them in the interrupt IRQ handler.
  *        
  *        @note 
- * 0 `(  !Fër error managemeÐtÔ}it is advised to use the (oTJjwýhª0Ðncti¢nÇ_
- *        0 - I2C_ITConfig() to configure and enable thå e0ror ijturr}uta" H2C_IT_ERR).
-`*         - I2KxAR_IRÑHa,dler(- gjich is called when the errgr mn|eRvupt occurs.
-"*(!          Wjezd x(iS$the peripheral insuaêc% (h2C1, I2C2 ...)
- *          - I2C_GetFlagStatus(	 ïf Y0C_GetITStatus() to(bE$called into I2Cx_ER_IRQHandl%r( 
- *          0 )f ordgr(uo determine whikh arror occured.
- *          - I2C_CmeårFlcg ( ob 	:C_ClearITPun"avdBit() and/or I2ÃßS-$twareResetCmd()
- *            and/ïr 2C_OeNarateStop() in order to clear th' error flag and source,
- *     `     and return to correct coMmõ~acArigo statuó.H *            
+ *        For error management, it is advised to use the following functions:
+ *          - I2C_ITConfig() to configure and enable the error interrupts (I2C_IT_ERR).
+ *          - I2Cx_ER_IRQHandler() which is called when the error interrupt occurs.
+ *            Where x is the peripheral instance (I2C1, I2C2 ...)
+ *          - I2C_GetFlagStatus() or I2C_GetITStatus() to be called into I2Cx_ER_IRQHandler() 
+ *            in order to determine which error occured.
+ *          - I2C_ClearFlag() or I2C_ClearITPendingBit() and/or I2C_SoftwareResetCmd()
+ *            and/or I2C_GenerateStop() in order to clear the error flag and source,
+ *            and return to correct communication status.
+ *            
  *
- *  2) Advanced$sdcte monitoring:
- *     Using tèe $unction I2C_GetasUEvent() which returns`thD image of both status 
+ *  2) Advanced state monitoring:
+ *     Using the function I2C_GetLastEvent() which returns the image of both status 
  *     registers in a single word (uint32_t) (Status Register 2 value is shifted left 
  *     by 16 bits and concatenated to Status Register 1).
  *     - When to use:

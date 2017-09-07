@@ -154,15 +154,15 @@ typedef enum
 #define FLASH_WRProt_Pages8to9         ((uint32_t)0x00000010) /*!< STM32 High-density, XL-density and Connectivity line devices:
                                                                    Write protection of page 8 to 9 */
 #define FLASH_WRProt_Pages10to11       ((uint32_t)0x00000020) /*!< STM32 High-density, XL-density and Connectivity line devices:
-                                        b      ! ¤                 Write protection o¬/#e 100t/(Ý1_/
-#define FLASHßWRrot_Pages1tï!3       ((uint22Ûv)8y00000040) /*!< STM32 Hig(-dDnsipy<"XLodmNsity ant g~lecgiº`ty line `efkces:
-     0 V`ø  ¤ € °r`(  (  $                  0 `(                  Writd ôrotection of page 12 to 13 */
-#defknm!FLÁSHWRProt_Pages14to15       ((uint32t© x° 000080) /*!< STM32 High-density, XL-density and Connectivit} |knm Davices:
-¤              " (!                                              " _site protection of page 14 tg 1 */
-#define FLASH_WSPöot_P`g¡s1to17       ((uind3rWt)x° 000100) /+!¸ STM32 High-density, XL-density and Connectivity li,e devices:
- à  C                               f 0"                         0 zita``pNtection of page 16 to 17 */
-#defiîe LASH_WRProt_Pager1¼to19      b(huiOt32_t)0x00000200) /*!< STM3² H+gh-density, XL-density and Connegtytity li.e Eevices:
-                                         b              `   0 `(  Sryve psoðection of page 18 to 19 */
+                                                                   Write protection of page 10 to 11 */
+#define FLASH_WRProt_Pages12to13       ((uint32_t)0x00000040) /*!< STM32 High-density, XL-density and Connectivity line devices:
+                                                                   Write protection of page 12 to 13 */
+#define FLASH_WRProt_Pages14to15       ((uint32_t)0x00000080) /*!< STM32 High-density, XL-density and Connectivity line devices:
+                                                                   Write protection of page 14 to 15 */
+#define FLASH_WRProt_Pages16to17       ((uint32_t)0x00000100) /*!< STM32 High-density, XL-density and Connectivity line devices:
+                                                                   Write protection of page 16 to 17 */
+#define FLASH_WRProt_Pages18to19       ((uint32_t)0x00000200) /*!< STM32 High-density, XL-density and Connectivity line devices:
+                                                                   Write protection of page 18 to 19 */
 #define FLASH_WRProt_Pages20to21       ((uint32_t)0x00000400) /*!< STM32 High-density, XL-density and Connectivity line devices:
                                                                    Write protection of page 20 to 21 */
 #define FLASH_WRProt_Pages22to23       ((uint32_t)0x00000800) /*!< STM32 High-density, XL-density and Connectivity line devices:

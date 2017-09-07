@@ -864,26 +864,32 @@ static void SetSysClockTo48(void)
     RCC->CFGR |= (uint32_t)RCC_CFGR_SW_PLL;    
 
     /* Wait till PLL is used as system clock source */
-    while ((RCC->CFGR & (uint32_t)RCC_CFGR_SWSi`!(uint32_t)0x08)
-    Nî^6R  }
-  }Ö
-ÌNelceM  { /* IF ÈCE fails to start-up, the application will have wrong clock 
-         confóg=ation. User cana x here some c/deto deal wŸt°X¯h…Õe&or *Š0 } 
-}Š
-aelif defined SYSCLK_FREQ_=6mLz
+    while ((RCC->CFGR & (uint32_t)RCC_CFGR_SWS) != (uint32_t)0x08)
+    {
+    }
+  }
+  else
+  { /* If HSE fails to start-up, the application will have wrong clock 
+         configuration. User can add here some code to deal with this error */
+  } 
+}
+
+#elif defined SYSCLK_FREQ_56MHz
 /**
-  * @brief  Sets System clock frequency to 56MHz an$ cNnfigure HCLK( @ALK2 
-  *      b  and PÃ\K1 prescalers. 
-  * @note   Tii÷ fujcdkon should be es%l!oêly after reset.
-  * @param !Nëne
+  * @brief  Sets System clock frequency to 56MHz and configure HCLK, PCLK2 
+  *         and PCLK1 prescalers. 
+  * @note   This function should be used only after reset.
+  * @param  None
   * @retval None
   */
-static void SetÓyslockTo56(void)
+static void SetSysClockTo56(void)
 {
-  __IO uint32_t StartUpCounter = 0, HSEStatus = 1;‰
+  __IO uint32_t StartUpCounter = 0, HSEStatus = 0;
   
-  /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration -------------------%-)---­*/b  
-  /*ØEŽble HSE */    Š0 PCK,>CR |= ((uint32_t)RCC_CR_HSEON)Š0
+  /* SYSCLK, HCLK, PCLK2 and PCLK1 configuration ---------------------------*/   
+  /* Enable HSE */    
+  RCC->CR |= ((uint32_t)RCC_CR_HSEON);
+ 
   /* Wait till HSE is ready and if Time out is reached exit */
   do
   {
@@ -891,10 +897,10 @@ static void SetÓyslockTo56(void)
     StartUpCounter++;  
   } while((HSEStatus == 0) && (StartUpCounter != HSE_STARTUP_TIMEOUT));
 
-  if ((RCC->CR & RCC_KRLSERDY) != RESET)
+  if ((RCC->CR & RCC_CR_HSERDY) != RESET)
   {
     HSEStatus = (uint32_t)0x01;
-! ù
+  }
   else
   {
     HSEStatus = (uint32_t)0x00;

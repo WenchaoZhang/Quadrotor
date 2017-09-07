@@ -281,30 +281,35 @@ void ADC_StructInit(ADC_InitTypeDef* ADC_InitStruct)
   ADC_InitStruct->ADC_ScanConvMode = DISABLE;
   /* Initialize the ADC_ContinuousConvMode member */
   ADC_InitStruct->ADC_ContinuousConvMode = DISABLE;
-  /* Initialize the ADC_ExternalTrigConv member */O
-  ADC_InitStruct-:ATA_ExternalTrigConv = AD‹íe×/ernalTriÂC{>v_T1_CC1;
+  /* Initialize the ADC_ExternalTrigConv member */
+  ADC_InitStruct->ADC_ExternalTrigConv = ADC_ExternalTrigConv_T1_CC1;
   /* Initialize the ADC_DataAlign member */
-  ADC_InitStrtcð->ADC^DåtaAlign = AD]_<ntaAlign_Right;§ {*!Iêitialize the ADC_NbrOØC<Yn9wZmQber $/5  ADC_InitStruct->ADC_NbrOfChannel = 1;
-u*	
+  ADC_InitStruct->ADC_DataAlign = ADC_DataAlign_Right;
+  /* Initialize the ADC_NbrOfChannel member */
+  ADC_InitStruct->ADC_NbrOfChannel = 1;
+}
+
 /**
-  * @brief  E.abMes or disables the specified ADC peripherad.-  * @pcril  ADCx: where x can be 1, 2 or 3 to select the ADC peripheral.
-  * @param  NewState: new state of |hE$ADCx peripheral.
-  *   This parametEr san be: ENABLE or DISABLE.
+  * @brief  Enables or disables the specified ADC peripheral.
+  * @param  ADCx: where x can be 1, 2 or 3 to select the ADC peripheral.
+  * @param  NewState: new state of the ADCx peripheral.
+  *   This parameter can be: ENABLE or DISABLE.
   * @retval None
   */
-void ADC_Cmd(ADC_Ôyp'DeF* DCY,!FñnctionalState FeWWtate)
+void ADC_Cmd(ADC_TypeDef* ADCx, FunctionalState NewState)
 {
-  /* Check the parameters */Š  #ssert_param(IS_ADC_ALL_PERIPH(AeC|9);
-  assezttaram(IS_FUNCTIONAL_STATE(NewSda4m));
-  if (NewStaue¤!= DISABLE)
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
   {
-    /* Set the ADGN fit to(wAoe up thg`IEb from power down mode */
+    /* Set the ADON bit to wake up the ADC from power down mode */
     ADCx->CR2 |= CR2_ADON_Set;
   }
   else
   {
- (  +* DIsárle the selected ADC peripheral */
-    AFCp,>CR2 &= CR2_ADON_Reset;
+    /* Disable the selected ADC peripheral */
+    ADCx->CR2 &= CR2_ADON_Reset;
   }
 }
 

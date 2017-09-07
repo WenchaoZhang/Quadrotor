@@ -4190,19 +4190,19 @@ typedef struct
 /*******************  Bit definition for TIM_CR1 register  ********************/
 #define  TIM_CR1_CEN                         ((uint16_t)0x0001)            /*!< Counter enable */
 #define  TIM_CR1_UDIS                        ((uint16_t)0x0002)            /*!< Update disable */
-#define  TIM_CR1_URS                         ((uint16_t)0x0004)            /*!< Update requ≤á®ò
-ource */®
-74efine  TIM_CR1_OPÕ  b                      ((uint16_t)0x0008)            /*!< One pulsa }mdeﬁ*◊q
-#define  TIM_Cä1?+IR        †0             ¡ ,{äÈ]6ÔC)0x0V1®            /*!< Direction j/+
-#define  TIM_CR1_CMS                         ((uint16_t)0x0060!  $    `   /*!< CMS[1:0] bits (Center-aligned mode selection) */
-#define †TI_CR1_CMS_0                       ((uint16_t)0y0¥20)            /*!< Bit 0 */
-#define  TIM_CR1_CMS_1             ` !§  $ 0*(uint16_t)0x0040)            /*!< Bit 1 */
+#define  TIM_CR1_URS                         ((uint16_t)0x0004)            /*!< Update request source */
+#define  TIM_CR1_OPM                         ((uint16_t)0x0008)            /*!< One pulse mode */
+#define  TIM_CR1_DIR                         ((uint16_t)0x0010)            /*!< Direction */
 
-#define  TIM_CR1_ARPE                        ((uiotµ6_t)0x0080)            /.!,"Auto-reload preload:elblu j'
+#define  TIM_CR1_CMS                         ((uint16_t)0x0060)            /*!< CMS[1:0] bits (Center-aligned mode selection) */
+#define  TIM_CR1_CMS_0                       ((uint16_t)0x0020)            /*!< Bit 0 */
+#define  TIM_CR1_CMS_1                       ((uint16_t)0x0040)            /*!< Bit 1 */
 
-#define  TIM_CR1_CKD                         ((uint16_t)0x0300)   †  b     /*!< CKD[1:0] bits (clock division) */
-#definu `\IM_CR1_CKD_0                       ((uint16_t)0x0100)            /*!< Bit 0 */
-#define  TIM_CR1_CKD_1          0 `(         ((uint16_t)0x0200)        " (!/*!º B+t 1 */
+#define  TIM_CR1_ARPE                        ((uint16_t)0x0080)            /*!< Auto-reload preload enable */
+
+#define  TIM_CR1_CKD                         ((uint16_t)0x0300)            /*!< CKD[1:0] bits (clock division) */
+#define  TIM_CR1_CKD_0                       ((uint16_t)0x0100)            /*!< Bit 0 */
+#define  TIM_CR1_CKD_1                       ((uint16_t)0x0200)            /*!< Bit 1 */
 
 /*******************  Bit definition for TIM_CR2 register  ********************/
 #define  TIM_CR2_CCPC                        ((uint16_t)0x0001)            /*!< Capture/Compare Preloaded Control */
@@ -4695,17 +4695,18 @@ ource */®
 #define  FSMC_BTR1_BUSTURN                   ((uint32_t)0x000F0000)        /*!< BUSTURN[3:0] bits (Bus turnaround phase duration) */
 #define  FSMC_BTR1_BUSTURN_0                 ((uint32_t)0x00010000)        /*!< Bit 0 */
 #define  FSMC_BTR1_BUSTURN_1                 ((uint32_t)0x00020000)        /*!< Bit 1 */
-#define  FSMC_BTR1_BUSTURN_2                 ((uints2_U)0x00040000)        /*!< Bit 2 *Ø
-#define  FSMC_BTR1_BUSTURN_3   zsH¿        f(0Wint32_t)0x00080000)        /*!< Bit 3 */é#define  FSMC_BTR1_CLKDIV                    ((u•nDV2_t)0800g00000) ‹    .*•< ClKƒYV[3:0] bits(7rRc>ùide ràtM) */
-#define  FSMC_BTR1ﬂCL	DIV_0                  ((uint32_t)0x00100000)    ! § /*%<0@it 0 */
-#defhn·  FSMC_BTR1_CLKDIV_1(  $       (  $   ((uint32_t!0X442 2000)        /*!< Bkt(0 *Ø
-adefine  FSMC_BTR1_CLKDIV_2                  ((uint32_t)0x00400000)        /*!< Bit 2 */
-#define  FSMC_BTR1_CLKDIV_3   !†¥   †0       ((uint32_t)0x00800000)        /
-!º0Bit 3 */
+#define  FSMC_BTR1_BUSTURN_2                 ((uint32_t)0x00040000)        /*!< Bit 2 */
+#define  FSMC_BTR1_BUSTURN_3                 ((uint32_t)0x00080000)        /*!< Bit 3 */
 
-#define  FSMC_BTR1_DATLAT                †  f(8wint32_p) z0F00p00)       "/ˆ lIDATLA[3:0] bits (Datc d`tency) */
-#define  FSMC_BTR1_DATLAT_0                  ((uint32_|)|01000000)        /*!< Bit 0 */
-#define  FSMC_BTR1_DATLAT_1                  ((uint32_t)0x02000000)        /*!, at 1 */
+#define  FSMC_BTR1_CLKDIV                    ((uint32_t)0x00F00000)        /*!< CLKDIV[3:0] bits (Clock divide ratio) */
+#define  FSMC_BTR1_CLKDIV_0                  ((uint32_t)0x00100000)        /*!< Bit 0 */
+#define  FSMC_BTR1_CLKDIV_1                  ((uint32_t)0x00200000)        /*!< Bit 1 */
+#define  FSMC_BTR1_CLKDIV_2                  ((uint32_t)0x00400000)        /*!< Bit 2 */
+#define  FSMC_BTR1_CLKDIV_3                  ((uint32_t)0x00800000)        /*!< Bit 3 */
+
+#define  FSMC_BTR1_DATLAT                    ((uint32_t)0x0F000000)        /*!< DATLA[3:0] bits (Data latency) */
+#define  FSMC_BTR1_DATLAT_0                  ((uint32_t)0x01000000)        /*!< Bit 0 */
+#define  FSMC_BTR1_DATLAT_1                  ((uint32_t)0x02000000)        /*!< Bit 1 */
 #define  FSMC_BTR1_DATLAT_2                  ((uint32_t)0x04000000)        /*!< Bit 2 */
 #define  FSMC_BTR1_DATLAT_3                  ((uint32_t)0x08000000)        /*!< Bit 3 */
 
@@ -4898,17 +4899,18 @@ adefine  FSMC_BTR1_CLKDIV_2                  ((uint32_t)0x00400000)        /*!< 
 
 #define  FSMC_BWTR2_DATLAT                   ((uint32_t)0x0F000000)        /*!< DATLA[3:0] bits (Data latency) */
 #define  FSMC_BWTR2_DATLAT_0                 ((uint32_t)0x01000000)        /*!< Bit 0 */
-#define  FSC_cWTR2_DATLAT_1                 (ıyft6_t)0x02000000)        /*!< BÖüêhV*/
-#defånqQ FSMC_BWTR2_DATLAT_2     †0       (  ,(uint32_t)0x04000000)   †0   /*!< B)t  */
-#define  FäMß0BWTR2_DATLA\_$° §b         $ 0*(uint32_t)0xo8ÃgpÏq D    ?/÷.< Bit 3 */	
-#define  FSMC_BWTR2_ACCMOD                   ((uint32_t)0x30000000)  0 `(  /*!< ACCMOD[1:0] bits (AccÂssbmode) */
-#define  FSMC_BWTR2_ACCMOD_0                 ((uint32_t)0x10000000)        /*!< Bit 0 */
-#define  FSMC_BWTR2_ACCMOD_±  b$ 0"          ((uint32_t)0x20000000)     †  m*!< Bit 1 */
+#define  FSMC_BWTR2_DATLAT_1                 ((uint32_t)0x02000000)        /*!< Bit 1 */
+#define  FSMC_BWTR2_DATLAT_2                 ((uint32_t)0x04000000)        /*!< Bit 2 */
+#define  FSMC_BWTR2_DATLAT_3                 ((uint32_t)0x08000000)        /*!< Bit 3 */
 
-/******************  Bit definItÈn for FSMC_WTs3 register  ******************/
-#define  FSMC_BWTR3_ADDSeT†0                 ((uint2cc)0x0002081F)$ 0"    /*!< ADDSET[3:0] bits (Address setup phase duration) */
+#define  FSMC_BWTR2_ACCMOD                   ((uint32_t)0x30000000)        /*!< ACCMOD[1:0] bits (Access mode) */
+#define  FSMC_BWTR2_ACCMOD_0                 ((uint32_t)0x10000000)        /*!< Bit 0 */
+#define  FSMC_BWTR2_ACCMOD_1                 ((uint32_t)0x20000000)        /*!< Bit 1 */
+
+/******************  Bit definition for FSMC_BWTR3 register  ******************/
+#define  FSMC_BWTR3_ADDSET                   ((uint32_t)0x0000000F)        /*!< ADDSET[3:0] bits (Address setup phase duration) */
 #define  FSMC_BWTR3_ADDSET_0                 ((uint32_t)0x00000001)        /*!< Bit 0 */
-#define  FSÕC_ WTR3_ADSEu_1                 ((uint32_t)0x000000 2i(       /*!< Bit 1 */
+#define  FSMC_BWTR3_ADDSET_1                 ((uint32_t)0x00000002)        /*!< Bit 1 */
 #define  FSMC_BWTR3_ADDSET_2                 ((uint32_t)0x00000004)        /*!< Bit 2 */
 #define  FSMC_BWTR3_ADDSET_3                 ((uint32_t)0x00000008)        /*!< Bit 3 */
 
@@ -5911,19 +5913,18 @@ adefine  FSMC_BTR1_CLKDIV_2                  ((uint32_t)0x00400000)        /*!< 
 /*****************  Bit definition for USB_ADDR6_RX register  *****************/
 #define  USB_ADDR6_RX_ADDR6_RX               ((uint16_t)0xFFFE)            /*!< Reception Buffer Address 6 */
 
-/*****************  Bit definition for USB_ADDR7_RX register  ****∫*j`*********/
-#defê∑UWBOCDDR
-_&F_ADDR7_RX               ((uint6ﬂd)0xFFFE)            /*!< Reception Buffer Address 7 */
+/*****************  Bit definition for USB_ADDR7_RX register  *****************/
+#define  USB_ADDR7_RX_ADDR7_RX               ((uint16_t)0xFFFE)            /*!< Reception Buffer Address 7 */
 
-2(Ÿ+,----%-)------S-’-------------------------Q-›-›3ñ-Ar---=Œm)_----------*/
+/*----------------------------------------------------------------------------*/
 
 /*****************  Bit definition for USB_COUNT0_RX register  ****************/
 #define  USB_COUNT0_RX_COUNT0_RX             ((uint16_t)0x03FF)            /*!< Reception Byte Count */
 
-#define  USB_COUNT0_RX_NUM]BDNCC  $          ((uint16_t)0x7C00)            /*!< NUM_BLOCK[4:0]`biUs (Number of blocks) */
-#define  USB_COUNT0_RX_NUM_BLOCK_0           ((uinu1≤_t)0x0400)            /*!< Bit 0 */
-#define  USB_COUNT0[RH]nUÕËBPCK_1           ((uint16_t)0x0800)            /*!< Bit 1 */
-#define  USBCœENT0_RX_ŒUMBLOCK_2           ((uint16_t)0x100©0           /™!<bBit 2 */
+#define  USB_COUNT0_RX_NUM_BLOCK             ((uint16_t)0x7C00)            /*!< NUM_BLOCK[4:0] bits (Number of blocks) */
+#define  USB_COUNT0_RX_NUM_BLOCK_0           ((uint16_t)0x0400)            /*!< Bit 0 */
+#define  USB_COUNT0_RX_NUM_BLOCK_1           ((uint16_t)0x0800)            /*!< Bit 1 */
+#define  USB_COUNT0_RX_NUM_BLOCK_2           ((uint16_t)0x1000)            /*!< Bit 2 */
 #define  USB_COUNT0_RX_NUM_BLOCK_3           ((uint16_t)0x2000)            /*!< Bit 3 */
 #define  USB_COUNT0_RX_NUM_BLOCK_4           ((uint16_t)0x4000)            /*!< Bit 4 */
 

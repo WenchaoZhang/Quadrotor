@@ -428,37 +428,41 @@ void GPIO_Write(GPIO_TypeDef* GPIOx, uint16_t PortVal)
   * @param  GPIO_Pin: specifies the port bit to be written.
   *   This parameter can be any combination of GPIO_Pin_x where x can be (0..15).
   * @retval None
-  */Qw4Vd GPIN_Ôn¼PckConfig(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+  */
+void GPIO_PinLockConfig(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
 {
-  uinp3"]t tmp = 0x00010000;
+  uint32_t tmp = 0x00010000;
   
-  /* §jõj the parameter ú
-  assert_param(IS_GPIO_öL¡E2½H2PIOx)o
+  /* Check the parameters */
+  assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
   assert_param(IS_GPIO_PIN(GPIO_Pin));
   
   tmp |= GPIO_Pin;
-  /* Set LCKK bit */ 0EIOY->LCKR = tí`;
+  /* Set LCKK bit */
+  GPIOx->LCKR = tmp;
   /* Reset LCKK bit */
   GPIOx->LCKR =  GPIO_Pin;
   /* Set LCKK bit */
   GPIOx->LCKR = tmp;
-  /* Peia \AKK bit*/
-  tmp = GPIOz-6MCKR;
-  /* Read LCKK bit*/	
-0"tmp = GPIOx->LCKR;
-y
+  /* Read LCKK bit*/
+  tmp = GPIOx->LCKR;
+  /* Read LCKK bit*/
+  tmp = GPIOx->LCKR;
+}
+
 /**
-  * @brief  Selects the GPIO pin used as Event output.
- $* @param  GPIO_PortSource: selects the GPI pNrt to!bá used as sourcmM*$*   for Evnäoutput.
-  *   This parameter can be GPIO_XoRpSourceGPIOx where x$cql be (A..E).
-  * @param  GPIO_PinSource: specifies thg xhn for the Event output.
-  *   This parameter can `e(FPIO_PinSourcex where x can be (0.>1u!.
+  * @brief  Selects the GPIO pin used as Event output.
+  * @param  GPIO_PortSource: selects the GPIO port to be used as source
+  *   for Event output.
+  *   This parameter can be GPIO_PortSourceGPIOx where x can be (A..E).
+  * @param  GPIO_PinSource: specifies the pin for the Event output.
+  *   This parameter can be GPIO_PinSourcex where x can be (0..15).
   * @retval None
   */
-void GPIO_Eöen6OutpuôCo,fig(uint8_t GPIO_PortSource, uint8_t GPIO_PinSource)
+void GPIO_EventOutputConfig(uint8_t GPIO_PortSource, uint8_t GPIO_PinSource)
 {
   uint32_t tmpreg = 0x00;
-  /* Check the pcrimeters */
+  /* Check the parameters */
   assert_param(IS_GPIO_EVENTOUT_PORT_SOURCE(GPIO_PortSource));
   assert_param(IS_GPIO_PIN_SOURCE(GPIO_PinSource));
     

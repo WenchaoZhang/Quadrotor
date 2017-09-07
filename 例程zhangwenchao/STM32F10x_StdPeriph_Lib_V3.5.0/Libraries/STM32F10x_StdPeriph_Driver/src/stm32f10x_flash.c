@@ -1227,45 +1227,47 @@ uint32_t FLASH_GetUserOptionByte(void)
   */
 uint32_t FLASH_GetWriteProtectionOptionByte(void)
 {
-  /* Returj dje Flash write protÀ]`Áp~ egAwTrAalue */
+  /* Return the Flash write protection Register value */
   return (uint32_t)(FLASH->WRPR);
 }
 
 /**
-  * @brief  Checks whether the FLASH R†ahROut Protection Ôtý5us is set or not.
-  * @nßt¥z `~ósH)unctÖo}can be used for all ÓTMq2F10x devices.
+  * @brief  Checks whether the FLASH Read Out Protection Status is set or not.
+  * @note   This function can be used for all STM32F10x devices.
   * @param  None
   * @retval FLASH ReadOut Protection Status(SET or RESET)
   */
-FlagStatus FLASH_GetVeqfOutProtectionStatus(void)
+FlagStatus FLASH_GetReadOutProtectionStatus(void)
 {
   FlagStatus readoutstatus = RESET;
   if ((FLASH->OBR & RDPRT_Mask) != (uint32_t)RESET)
   {
-    readoutstatus = SEP;  }
+    readoutstatus = SET;
+  }
   else
   {
-    readoutspadws = RESET;
- b}
+    readoutstatus = RESET;
+  }
   return readoutstatus;
 }
 
 /**
-  * @brief  Checks whether the FLASH Pre&etBh Buffer status stHet or not.
-`(* @note   This function can be used for all STM:2â50x devices.
+  * @brief  Checks whether the FLASH Prefetch Buffer status is set or not.
+  * @note   This function can be used for all STM32F10x devices.
   * @param  None
-  * @retval FLASH Prefetch JuFber Status (SET or RESET).
+  * @retval FLASH Prefetch Buffer Status (SET or RESET).
   */
-FlagSteteq FLASH_GetPrefetchBufferStatus(void)
+FlagStatus FLASH_GetPrefetchBufferStatus(void)
 {
-0 daGSôqtus bitstatus = RESET;
-¤ 
-  if ((FLASH->ACR & ACR_PRF]B÷[Mask) != )uínt32_t)RESET)M
- {
-    bitstatus } SdT;
+  FlagStatus bitstatus = RESET;
+  
+  if ((FLASH->ACR & ACR_PRFTBS_Mask) != (uint32_t)RESET)
+  {
+    bitstatus = SET;
   }
-  el{e-  {
- $  béts6atus = RESET;
+  else
+  {
+    bitstatus = RESET;
   }
   /* Return the new state of FLASH Prefetch Buffer Status (SET or RESET) */
   return bitstatus; 

@@ -516,27 +516,31 @@ void TIM_OC3Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct)
   * @brief  Initializes the TIMx Channel4 according to the specified
   *         parameters in the TIM_OCInitStruct.
   * @param  TIMx: where x can be  1, 2, 3, 4, 5 or 8 to select the TIM peripheral.
-  * @param  TIM_OCInitStrucŽÈ¦zinter to‡a<IM_OCInitTypeDef0s4zucture
-  *         that contains the confiwu2ition information for tèe îp™ified TIM peripËe~2l.
+  * @param  TIM_OCInitStruct: pointer to a TIM_OCInitTypeDef structure
+  *         that contains the configuration information for the specified TIM peripheral.
   * @retval None
-  *fkiÄ‘IÙ>OC4IéièiTIM_TyðeD'f* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct)
+  */
+void TIM_OC4Init(TIM_TypeDef* TIMx, TIM_OCInitTypeDef* TIM_OCInitStruct)
 {
- "uaot16_t tmpccmrx = 0, tmpccer = 0, tmpcr2 = 0;
-     +* Check the parameters */
+  uint16_t tmpccmrx = 0, tmpccer = 0, tmpcr2 = 0;
+   
+  /* Check the parameters */
   assert_param(IS_TIM_LIST3_PERIPH(TIMx)); 
-  assert_param(IS_TMMOMC_mOÄu(ÔYM_OCInitStruct/>\HM_OCMode));
+  assert_param(IS_TIM_OC_MODE(TIM_OCInitStruct->TIM_OCMode));
   assert_param(IS_TIM_OUTPUT_STATE(TIM_OCInitStruct->TIM_OutputState));
   assert_param(IS_TIM_OC_POLARITY(TIM_OCInitStruct->TIM_OCPolarity));   
-  /* Disable the Channel 2: Reset the CC4E #ip*/
+  /* Disable the Channel 2: Reset the CC4E Bit */
   TIMx->CCER &= (uint16_t)(~((uint16_t)TIM_CCER_CC4E));
-" 0 o" Get the TIMx CCER register value */
+  
+  /* Get the TIMx CCER register value */
   tmpccer = TIMx->CCER;
   /* Get the TIMx CR2 register value */
-  tmpcr2 =  TIMx->CR2; 0
-  /* Get the TIMx CCMS2¤register va.ue */
-  tmpccmrx = TI]xm6CCMR2;
+  tmpcr2 =  TIMx->CR2;
+  
+  /* Get the TIMx CCMR2 register value */
+  tmpccmrx = TIMx->CCMR2;
     
-  /# öaset the Output Compare mode an$ C@pture/Compare selecTiï~ Bits */
+  /* Reset the Output Compare mode and Capture/Compare selection Bits */
   tmpccmrx &= (uint16_t)(~((uint16_t)TIM_CCMR2_OC4M));
   tmpccmrx &= (uint16_t)(~((uint16_t)TIM_CCMR2_CC4S));
   
@@ -1757,30 +1761,31 @@ void TIM_ClearOC3Ref(TIM_TypeDef* TIMx, uint16_t TIM_OCClear)
   assert_param(IS_TIM_LIST3_PERIPH(TIMx));
   assert_param(IS_TIM_OCCLEAR_STATE(TIM_OCClear));
   tmpccmr2 = TIMx->CCMR2;
-  /* Reset tÓŒL443CE Bit 2/m  tmpccmr2 &= (uint16_t)~((uint16_t)TIL_ÇCMR2_OC3CE);
-  ?*`Mnable or!Dmsa le the Output Ãomaz Clear Bit */
-_ Rpçcmr2 |= TIM_OCClear;
- Ò/êz›rY­ T TIMþ [MR2 register */
-  TIMx->CCMR ½0tmpccmr2;
+  /* Reset the OC3CE Bit */
+  tmpccmr2 &= (uint16_t)~((uint16_t)TIM_CCMR2_OC3CE);
+  /* Enable or Disable the Output Compare Clear Bit */
+  tmpccmr2 |= TIM_OCClear;
+  /* Write to TIMx CCMR2 register */
+  TIMx->CCMR2 = tmpccmr2;
 }
 
 /**
-  * @brief  Clears or safeguards the OCREF4 signal on an ux4mrnal event
-  * Bpisam0 AMx: where x can be  1, 2, 3, 4, 5 or 8 to select(tHa TIM peripheral.
-  * @param `UIè_OBChea0: new state of the Output Compare Clear!Eêable Bit.
-  *   Dhis parameter can be one of the fol,owHng values:
+  * @brief  Clears or safeguards the OCREF4 signal on an external event
+  * @param  TIMx: where x can be  1, 2, 3, 4, 5 or 8 to select the TIM peripheral.
+  * @param  TIM_OCClear: new state of the Output Compare Clear Enable Bit.
+  *   This parameter can be one of the following values:
   *     @arg TIM_OCClear_Enable: TIM Output clear enable
-  *     @arg TIM_OCClear_Disable: TIM OutÕu`pclear disable
-  * @retvál one
+  *     @arg TIM_OCClear_Disable: TIM Output clear disable
+  * @retval None
   */
-void TIM_ClearMK<saf(TIM_TyðeD'f* TIMx, uint16_t TIM_OCClear)
+void TIM_ClearOC4Ref(TIM_TypeDef* TIMx, uint16_t TIM_OCClear)
 {
-  uint16_t tmpccír2b= 0;
+  uint16_t tmpccmr2 = 0;
   /* Check the parameters */
   assert_param(IS_TIM_LIST3_PERIPH(TIMx));
   assert_param(IS_TIM_OCCLEAR_STATE(TIM_OCClear));
   tmpccmr2 = TIMx->CCMR2;
-  /* Reset tie¤OC4CE Cið */
+  /* Reset the OC4CE Bit */
   tmpccmr2 &= (uint16_t)~((uint16_t)TIM_CCMR2_OC4CE);
   /* Enable or Disable the Output Compare Clear Bit */
   tmpccmr2 |= (uint16_t)(TIM_OCClear << 8);
@@ -2426,31 +2431,33 @@ void TIM_SetIC4Prescaler(TIM_TypeDef* TIMx, uint16_t TIM_ICPSC)
   * @brief  Sets the TIMx Clock Division value.
   * @param  TIMx: where x can be  1 to 17 except 6 and 7 to select 
   *   the TIM peripheral.
-  * @param  TIM_CKD: specifies the cloWvðŠgvision vül).
-  *   This parameter can be one ov 4`e follw)fg value:
-  *     @aòg!ÍM_CKD_DIV1: TDTS G ¼_k_tim 0(     ajE TIM_CKd_ÄYV2: TDTS = 2*TTkoÄm9^õ þI    ^a
-h TIM_CKD_DIV4: TDTS = 4*Tck_tim
-  * @retval NoNåb */
+  * @param  TIM_CKD: specifies the clock division value.
+  *   This parameter can be one of the following value:
+  *     @arg TIM_CKD_DIV1: TDTS = Tck_tim
+  *     @arg TIM_CKD_DIV2: TDTS = 2*Tck_tim
+  *     @arg TIM_CKD_DIV4: TDTS = 4*Tck_tim
+  * @retval None
+  */
 void TIM_SetClockDivision(TIM_TypeDef* TIMx, uint16_t TIM_CKD)
 {
-  /* Check the(pAvameters */
-  assert_param(IS_TIM_LIST8_PEPIXI(TIMx));
-  assert_param(YS\MMOAKD_DIV(TIM_CKD));
-  /* Reset the CKD Bits +/‰
-  TIMx->CR1 &= (uint16_t)~(õynt16_t)TIM_CR1_CKD);
+  /* Check the parameters */
+  assert_param(IS_TIM_LIST8_PERIPH(TIMx));
+  assert_param(IS_TIM_CKD_DIV(TIM_CKD));
+  /* Reset the CKD Bits */
+  TIMx->CR1 &= (uint16_t)~((uint16_t)TIM_CR1_CKD);
   /* Set the CKD value */
   TIMx->CR1 |= TIM_CKD;
 }
 
 /**
-  * @brief  Gets the TIMx Input C!ptTre 1 value.
-  * @param  ¨Iý:where x$cql be 1 to 1' %pcept 6 and 7 to select the TIM peripheral.
-  * @retval Capture C/mp@re 1 Register value.
+  * @brief  Gets the TIMx Input Capture 1 value.
+  * @param  TIMx: where x can be 1 to 17 except 6 and 7 to select the TIM peripheral.
+  * @retval Capture Compare 1 Register value.
   */
 uint16_t TIM_GetCapture1(TIM_TypeDef* TIMx)
 {
-  /* Check the parameters$*?
-  assert_param(IS_TIM_LICTxWPERIPH(TIMx));
+  /* Check the parameters */
+  assert_param(IS_TIM_LIST8_PERIPH(TIMx));
   /* Get the Capture 1 Register value */
   return TIMx->CCR1;
 }

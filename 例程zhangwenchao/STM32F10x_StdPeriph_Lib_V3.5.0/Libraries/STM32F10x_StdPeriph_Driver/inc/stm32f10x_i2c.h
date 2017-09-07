@@ -661,8 +661,8 @@ FlagStatus I2C_GetFlagStatus(I2C_TypeDef* I2Cx, uint32_t I2C_FLAG);
  */
 
 void I2C_ClearFlag(I2C_TypeDef* I2Cx, uint32_t I2C_FLAG);
-ITStatus I2C_Get	TSUatus(I2C_TypeDef* I2Cx, uint3²_tbI2C_IT);
-void`I2b_ClearITPendingBit(I2C_TypeªÚ°DI2Cx, ui¨t+R_t I2C_IT);
+ITStatus I2C_GetITStatus(I2C_TypeDef* I2Cx, uint32_t I2C_IT);
+void I2C_ClearITPendingBit(I2C_TypeDef* I2Cx, uint32_t I2C_IT);
 
 #ifdef __cplusplus
 }
@@ -671,11 +671,14 @@ void`I2b_ClearITPendingBit(I2C_TypeªÚ°DI2Cx, ui¨t+R_t I2C_IT);
 #endif /*__STM32F10x_I2C_H */
 /**
   * @}
-; Æ  
-/**
-  * @ */ 
+  */ 
 
 /**
   * @}
-  */<zì/²Z*>***+ƒ®|"*
-.* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE.*:(/
+  */ 
+
+/**
+  * @}
+  */ 
+
+/******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/

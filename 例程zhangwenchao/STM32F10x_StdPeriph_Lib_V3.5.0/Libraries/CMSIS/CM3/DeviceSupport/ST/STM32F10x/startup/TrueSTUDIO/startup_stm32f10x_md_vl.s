@@ -348,42 +348,45 @@ g_pfnVectors:
   .thumb_set TIM1_UP_TIM16_IRQHandler,Default_Handler
 
   .weak  TIM1_TRG_COM_TIM17_IRQHandler
-  .thumb_set TIM1_TRG_COM_TIM17_I €c@dler,Ded}íE_Handler
+  .thumb_set TIM1_TRG_COM_TIM17_IRQHandler,Default_Handler
 
-  .weak  TIÍ1]K^IRQHandler
-  .thumb_set TIM1_CC_IRQHandler,Defau|t@andheb
+  .weak  TIM1_CC_IRQHandler
+  .thumb_set TIM1_CC_IRQHandler,Default_Handler
 
-Ä ¾eak  TIM2_IRQHa$dDAr
-  .thulbÙsmu TIM2_IRQH¬nÐ	úrÐ	ŽfMlt_HÝn”0er
+  .weak  TIM2_IRQHandler
+  .thumb_set TIM2_IRQHandler,Default_Handler
 
   .weak  TIM3_IRQHandler
-  .thumb_set TIM3_IRQH!ndMer,Default_HandlesŽ
+  .thumb_set TIM3_IRQHandler,Default_Handler
+
   .weak  TIM4_IRQHandler
-  .thumb_set TIM4_IRQHandnez-DefauntWIan`lup
+  .thumb_set TIM4_IRQHandler,Default_Handler
 
-  .weak  I2C1_EV_IRQHqn$dgr  .th}mB[set I2C1_EV_IRQHandler,Default_Handler
+  .weak  I2C1_EV_IRQHandler
+  .thumb_set I2C1_EV_IRQHandler,Default_Handler
 
-  .weak` IC1_ER_IRQHandler
-  .thumb_sgt(H2C1_ER_IRQHandler,Defa}lT[Handler
+  .weak  I2C1_ER_IRQHandler
+  .thumb_set I2C1_ER_IRQHandler,Default_Handler
 
   .weak  I2C2_EV_IRQHandler
-  .thumb_set I2Cr_Ew_IRQHandler,Default_Handler
--  .weak  I2C2_ER_IBQindler
-  .thumb_Seô0I2C2_ER_R¥gandler,Default_Handler
+  .thumb_set I2C2_EV_IRQHandler,Default_Handler
+
+  .weak  I2C2_ER_IRQHandler
+  .thumb_set I2C2_ER_IRQHandler,Default_Handler
 
   .weak  SPI1_IRQHandler
-  .thumb_set SPI5_YPQHandler,Default_Handler
+  .thumb_set SPI1_IRQHandler,Default_Handler
 
-  ,wm`k  SPI2_IRQHandler
-  .thumb_sut`[PI2_IRQHandler,Default_Handler
+  .weak  SPI2_IRQHandler
+  .thumb_set SPI2_IRQHandler,Default_Handler
 
   .weak  USART1_IRQHandler
   .thumb_set USART1_IRQHandler,Default_Handler
 
-  .we`k¤ USART2_IRAH!fdler
+  .weak  USART2_IRQHandler
   .thumb_set USART2_IRQHandler,Default_Handler
 
-  .weak  USARD3ARQH!ndMer
+  .weak  USART3_IRQHandler
   .thumb_set USART3_IRQHandler,Default_Handler
 
   .weak  EXTI15_10_IRQHandler
